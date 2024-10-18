@@ -1,0 +1,14 @@
+table {
+  width: 100%;
+}
+
+.searchbox {
+  margin-top: 20px;
+}
+
+#boton-agregar {
+  right: 45px;
+  bottom: 45px;
+  left: auto;
+  position: fixed;
+}

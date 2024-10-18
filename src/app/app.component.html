@@ -1,0 +1,11 @@
+<mat-drawer-container>
+  <mat-drawer #menu role="navigation">
+    <app-menu-lista (menuToggle)="menu.close()"></app-menu-lista>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-barra (menuToggle)="menu.toggle()"></app-barra>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-drawer-content>
+</mat-drawer-container>

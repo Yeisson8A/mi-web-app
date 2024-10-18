@@ -1,0 +1,72 @@
+<section fxLayoutAlign="center">
+  <mat-card>
+    <form [formGroup]="form" novalidate fxLayout="column" fxLayoutGap="30px" (ngSubmit)="registrarUsuario()">
+      <div fxLayout="row" fxLayoutGap="10px">
+        <mat-form-field>
+          <mat-label>Ingrese Nombre</mat-label>
+          <input
+            type="text"
+            formControlName="nombre"
+            matInput
+            placeholder="Ingrese Nombre"
+          />
+          <mat-error>El campo Nombre es obligatorio</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Ingrese Apellido</mat-label>
+          <input
+            type="text"
+            formControlName="apellido"
+            matInput
+            placeholder="Ingrese Apellido"
+          />
+          <mat-error>El campo Apellido es obligatorio</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Ingrese Nombre de Usuario</mat-label>
+          <input
+            type="text"
+            formControlName="username"
+            matInput
+            placeholder="Ingrese Nombre de Usuario"
+          />
+          <mat-error>El campo Nombre de Usuario es obligatorio</mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutGap="10px">
+        <mat-form-field>
+          <mat-label>Ingrese E-Mail</mat-label>
+          <input
+            formControlName="email"
+            type="email"
+            matInput
+            placeholder="Ingrese E-Mail"
+          />
+          <mat-error *ngIf="form.get('email').hasError('required')"
+            >El campo E-Mail es obligatorio</mat-error
+          >
+          <mat-error *ngIf="form.get('email').hasError('email')"
+            >El valor del campo E-Mail no es válido</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Ingrese Password</mat-label>
+          <input
+            formControlName="password"
+            type="password"
+            matInput
+            placeholder="Ingrese Password"
+          />
+          <mat-error *ngIf="form.get('password').hasError('required')">El campo Password es obligatorio</mat-error>
+          <mat-error *ngIf="form.get('password').hasError('minlength')">El valor del campo Password debe ser mayor a 9 caracteres</mat-error>
+          <mat-error *ngIf="form.get('password').hasError('passwordStrength')">El valor del campo Password debe contener mayúsculas, minusculas, números y caracteres especiales</mat-error>
+        </mat-form-field>
+      </div>
+      <div fxLayoutAlign="center">
+        <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">
+          Guardar
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</section>

@@ -1,0 +1,28 @@
+<mat-nav-list>
+  <a mat-list-item routerLink="/" (click)="onMenuCloseDispatch()" *ngIf="estadoUsuario">
+    <mat-icon>home</mat-icon>
+    <span class="navegacion-list-label">Inicio</span>
+  </a>
+  <a mat-list-item routerLink="/registro" (click)="onMenuCloseDispatch()" *ngIf="!estadoUsuario">
+    <mat-icon>how_to_reg</mat-icon>
+    <span class="navegacion-list-label">Registrar</span>
+  </a>
+  <a mat-list-item routerLink="/login" (click)="onMenuCloseDispatch()" *ngIf="!estadoUsuario">
+    <mat-icon>login</mat-icon>
+    <span class="navegacion-list-label">Login</span>
+  </a>
+  <a mat-list-item routerLink="/books" (click)="onMenuCloseDispatch()" *ngIf="estadoUsuario">
+    <mat-icon>book</mat-icon>
+    <span class="navegacion-list-label">Libros</span>
+  </a>
+  <a mat-list-item routerLink="/autores" (click)="onMenuCloseDispatch()" *ngIf="estadoUsuario">
+    <mat-icon>history_edu</mat-icon>
+    <span class="navegacion-list-label">Autores</span>
+  </a>
+  <mat-list-item *ngIf="estadoUsuario">
+    <button mat-icon-button (click)="cerrarSesionMenu()">
+      <mat-icon>logout</mat-icon>
+      <span class="navegacion-list-label">Salir</span>
+    </button>
+  </mat-list-item>
+</mat-nav-list>
